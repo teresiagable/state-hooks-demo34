@@ -24,7 +24,9 @@ export default class TempClassComponent extends Component {
 	};
 
 	render() {
-		const unit = this.state.unit;
+		//destructuring
+
+		let { unit, min, max, indoor, outdoor } = this.state;
 		return (
 			<div>
 				<table className='col'>
@@ -37,19 +39,19 @@ export default class TempClassComponent extends Component {
 						<tr>
 							<td>Min/Max</td>
 							<td>
-								{this.state.min} {unit} / {this.state.max} {unit}
+								{min} {unit} / {max} {unit}
 							</td>
 						</tr>
 						<tr>
 							<td>Indoor temperature</td>
 							<td>
-								{this.state.indoor.current} {unit}
+								{indoor.current} {unit}
 							</td>
 						</tr>
 						<tr>
 							<td>Outdoor temperature</td>
 							<td>
-								{this.state.outdoor.current} {unit}
+								{outdoor.current} {unit}
 							</td>
 						</tr>
 					</tbody>
@@ -59,13 +61,13 @@ export default class TempClassComponent extends Component {
 					<div className='row'>
 						<div className='col'>Indoor:</div>
 						<div className='col-sm'>
-							<input type='text' name='indoor' value={this.state.indoor.current} onChange={this.changeTemp} />
+							<input type='text' name='indoor' value={indoor.current} onChange={this.changeTemp} />
 						</div>
 					</div>
 					<div className='row'>
 						<div className='col'>Outdoor:</div>
 						<div className='col-sm'>
-							<input type='text' name='outdoor' value={this.state.outdoor.current} onChange={this.changeTemp} />
+							<input type='text' name='outdoor' value={outdoor.current} onChange={this.changeTemp} />
 						</div>
 					</div>
 				</div>
