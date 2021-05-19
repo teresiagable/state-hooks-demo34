@@ -13,8 +13,16 @@ export default class TempClassComponent extends Component {
 		},
 	};
 	changeTemp = (event) => {
-		///on lecture
+		console.log('changeTemp', event.target);
+		let theStateName = event.target.name; // outdoor or indoor
+		let newValue = event.target.value; // from the textbox
+
+		// state in class components are merged automatically. we only have to update the values we want to update, and leave out the rest.
+		this.setState({
+			[theStateName]: { current: newValue },
+		});
 	};
+
 	render() {
 		const unit = this.state.unit;
 		return (
